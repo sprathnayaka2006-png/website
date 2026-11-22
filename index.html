@@ -293,6 +293,47 @@
   .sg-item figcaption{display:flex;align-items:center;gap:9px;margin-top:13px;color:#e6f2e6;font-weight:600;font-size:.94rem}
   .sg-item figcaption::before{content:"";flex:none;width:20px;height:2px;background:var(--amber-2)}
 
+  /* BOTTLED RANGE (separate tab view) */
+  .b-hero{padding:64px 0 58px;background:linear-gradient(180deg,#ffffff 0%,var(--bg-soft) 130%)}
+  .b-hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);letter-spacing:-.015em;line-height:1.02;max-width:15ch}
+  .b-hero h1 em{font-style:italic;color:var(--amber)}
+  .b-hero .lead{margin-top:18px}
+  .b-hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .photo-slot{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(160deg,#f2f7f2,#e0edde);border:1px solid var(--line-strong);color:var(--green-2);overflow:hidden}
+  .photo-slot::after{content:"";position:absolute;inset:10px;border:1.5px dashed color-mix(in srgb, var(--green) 38%, transparent);border-radius:9px;pointer-events:none}
+  .photo-slot svg{opacity:.8}
+  .slot-cap{font-size:.78rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);text-align:center;padding:0 18px}
+  .slot-hero{margin-top:42px;aspect-ratio:16/6.2;border-radius:16px}
+  .slot-bottles{display:flex;align-items:flex-end;gap:clamp(16px,4.5vw,46px)}
+  .slot-bottles svg{width:clamp(38px,5.6vw,58px);height:auto}
+  .slot-bottles svg.tall{width:clamp(48px,7.2vw,76px)}
+  @media (max-width:640px){ .slot-hero{aspect-ratio:4/3.1} }
+  .b-band{background:linear-gradient(155deg,#1d4d2e 0%,#14351f 82%);color:#e6f2e6;padding:66px 0}
+  .b-band .kicker{color:var(--amber-2)}
+  .b-band .kicker::before{background:var(--amber-2)}
+  .b-band h2{color:#fff;font-size:clamp(2rem,4.6vw,3.2rem)}
+  .b-band h2 em{font-style:italic;color:var(--amber-2)}
+  .b-band .band-lead{color:#cfe3cf;margin-top:14px;max-width:62ch;font-size:1.05rem}
+  .b-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  @media (max-width:860px){ .b-feats{grid-template-columns:1fr} }
+  .b-feat{border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:24px 22px}
+  .b-feat h3{color:#fff;font-size:1.06rem;margin-bottom:8px}
+  .b-feat p{color:#cfe3cf;font-size:.94rem}
+  .b-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media (max-width:1080px){ .b-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .b-grid{grid-template-columns:1fr} }
+  .b-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(29,77,46,.06)}
+  .slot-card{aspect-ratio:4/4.3;border:none;border-bottom:1px solid var(--line)}
+  .slot-card svg{width:46px;height:auto}
+  .b-card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .b-card-body p{color:var(--ink-2);font-size:.94rem}
+  .b-card .enquire{margin-top:auto;padding-top:10px}
+  .b-card .enquire a{font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+  .b-back{margin-top:22px}
+  .b-back a{font-weight:600;text-decoration:none;display:inline-flex;min-height:44px;align-items:center}
+  #b-drinks,#b-spices{scroll-margin-top:84px}
+  .nav-links a[aria-current="page"]{color:var(--green);background:var(--green-soft)}
+
   /* CONTACT */
   .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
   @media (max-width:860px){ .contact-grid{grid-template-columns:1fr} }
@@ -337,6 +378,7 @@
     <nav class="nav-links" id="navLinks" aria-label="Main">
       <a href="#about">About</a>
       <a href="#products">Products</a>
+      <a href="#bottled" id="bottledTab">Bottled Range</a>
       <a href="#quality">Quality</a>
       <a href="#process">How We Work</a>
       <a href="#logistics">Shipping</a>
@@ -934,6 +976,179 @@
     </div>
   </section>
 </main>
+
+<!-- BOTTLED RANGE (separate tab view) -->
+<div id="bottledView" hidden>
+
+  <!-- BOTTLED HERO -->
+  <section class="b-hero">
+    <div class="wrap">
+      <span class="kicker">New · The Bottled Range</span>
+      <h1>Ceylon spice, <em>bottled.</em></h1>
+      <p class="lead">Rathnayaka Prime Exports (Pvt) Ltd is bottling what we already export best — Sri Lankan spices — together with a new line of bottled spiced drinks. Same origin, same grades, now in bottles made for the shelf. 🇱🇰</p>
+      <div class="b-hero-ctas">
+        <a class="btn btn-amber" href="#b-drinks">See the Spiced Drinks</a>
+        <a class="btn btn-ghost" href="#b-spices">See the Bottled Spices</a>
+      </div>
+      <div class="photo-slot slot-hero" role="img" aria-label="Photo slot for the bottled range — product photo to be added">
+        <div class="slot-bottles" aria-hidden="true">
+          <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+          <svg class="tall" viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+          <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+        </div>
+        <span class="slot-cap">Bottled range photo — to be added</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTLED STORY BAND -->
+  <section class="b-band">
+    <div class="wrap">
+      <span class="kicker">The Story</span>
+      <h2>From export bags<br>to <em>bottles.</em></h2>
+      <p class="band-lead">Until now our spices have travelled the world in bulk — 25&nbsp;kg bags and full containers. The bottled range takes the same graded Ceylon spices and puts them into retail bottles under our own name, and adds a line of spiced drinks bottled here in Sri Lanka.</p>
+      <div class="b-feats">
+        <div class="b-feat"><h3>Bottled at origin</h3><p>Bottled in Sri Lanka, close to where the spices are graded and packed — not blended or bottled overseas.</p></div>
+        <div class="b-feat"><h3>The same export grades</h3><p>The bottled range starts from the same lots we export in bulk — including our 550&nbsp;GL black pepper.</p></div>
+        <div class="b-feat"><h3>Made for the shelf</h3><p>Sized and labelled for retail shelves, hotels and gift programmes — ask us about private-label interest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPICED DRINKS -->
+  <section class="section section-soft" id="b-drinks">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Spiced Drinks</span>
+        <h2>Four bottled spiced drinks</h2>
+        <p class="lead">Our new beverage line — four spiced drinks, bottled in Sri Lanka. Final names, descriptions and product photos are being prepared; the range is open for enquiries now.</p>
+      </div>
+      <div class="b-grid">
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Spiced Drink No. 1 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Spiced Drink No. 1</h3><span class="tag">Drink</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this drink →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Spiced Drink No. 2 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Spiced Drink No. 2</h3><span class="tag">Drink</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this drink →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Spiced Drink No. 3 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Spiced Drink No. 3</h3><span class="tag">Drink</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this drink →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Spiced Drink No. 4 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Spiced Drink No. 4</h3><span class="tag">Drink</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this drink →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTLED SPICES -->
+  <section class="section" id="b-spices" style="padding-top:56px">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Bottled Spices</span>
+        <h2>Our spices, in bottles</h2>
+        <p class="lead">The retail side of the range — our export spices in bottles, ready for shop shelves. Photos and final bottle sizes are being prepared.</p>
+      </div>
+      <div class="b-grid">
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Bottled Black Pepper photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Bottled Black Pepper</h3><span class="tag">Bottled Spice</span></div>
+            <p>Our export-grade 550 GL whole black pepper, bottled for retail shelves.</p>
+            <div class="enquire"><a href="#contact">Enquire about this bottle →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Bottled Spice No. 2 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Bottled Spice No. 2</h3><span class="tag">Bottled Spice</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this bottle →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Bottled Spice No. 3 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Bottled Spice No. 3</h3><span class="tag">Bottled Spice</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this bottle →</a></div>
+          </div>
+        </article>
+
+        <article class="b-card">
+          <div class="photo-slot slot-card" role="img" aria-label="Photo slot — Bottled Spice No. 4 photo to be added">
+            <svg viewBox="0 0 48 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="19.5" y="3" width="9" height="7" rx="1.5"/><path d="M20 10v7.5c0 1.8-.9 3-2.1 4.2C15.9 23.7 15 26 15 29v45a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V29c0-3-.9-5.3-2.9-7.3C28.9 20.5 28 19.3 28 17.5V10"/><rect x="19" y="42" width="10" height="16" rx="1.5"/></svg>
+            <span class="slot-cap">Photo to be added</span>
+          </div>
+          <div class="b-card-body">
+            <div class="card-top"><h3>Bottled Spice No. 4</h3><span class="tag">Bottled Spice</span></div>
+            <p>Description to be added.</p>
+            <div class="enquire"><a href="#contact">Enquire about this bottle →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTLED CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="banner">
+        <div>
+          <h2>Interested in the bottled range?</h2>
+          <p>Tell us your market and the volumes you have in mind — we will reply from ceo@rathnayakaprimeexports.com with availability, bottle sizes and export terms as the range is finalised.</p>
+        </div>
+        <a class="btn btn-light" href="mailto:ceo@rathnayakaprimeexports.com?subject=Bottled%20Range%20Enquiry" style="white-space:nowrap">Email Us</a>
+      </div>
+      <p class="b-back"><a href="#top">← Back to our bulk export range</a></p>
+    </div>
+  </section>
+</div>
 
 <footer>
   <div class="wrap">
@@ -1896,6 +2111,34 @@
   loop();
 })();
 
+</script>
+
+<script>
+/* Tab views: main page <-> Bottled Range (#bottled) */
+(function(){
+  var mainEl = document.getElementById('top');
+  var bottledEl = document.getElementById('bottledView');
+  var tab = document.getElementById('bottledTab');
+  var baseTitle = document.title;
+  function showView(name){
+    var bottled = name === 'bottled';
+    mainEl.hidden = bottled;
+    bottledEl.hidden = !bottled;
+    if(bottled){ tab.setAttribute('aria-current', 'page'); } else { tab.removeAttribute('aria-current'); }
+    document.title = bottled ? 'Bottled Range — Rathnayaka Prime Exports (Pvt) Ltd' : baseTitle;
+  }
+  function applyHash(){
+    var h = location.hash;
+    if(h === '#bottled'){ showView('bottled'); window.scrollTo(0, 0); return; }
+    var t = (h && h.length > 1) ? document.getElementById(h.slice(1)) : null;
+    if(t && bottledEl.contains(t)){ showView('bottled'); return; }
+    var wasBottled = !bottledEl.hidden;
+    showView('main');
+    if(wasBottled && t){ setTimeout(function(){ t.scrollIntoView(); }, 40); }
+  }
+  window.addEventListener('hashchange', applyHash);
+  applyHash();
+})();
 </script>
 </body>
 </html>
